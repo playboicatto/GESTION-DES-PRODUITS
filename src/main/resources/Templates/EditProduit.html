@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Produit</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Elmouden Akram</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="listProduits" style="font-family: Arial, sans-serif; font-weight: bold;">Liste des produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="createProduit" style="font-family: Arial, sans-serif; font-weight: bold;">Création produit</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 class="p-3 mb-2 bg-secondary text-white text-center">Edit Produit</h1>
+</header>
+<main class="container my-5">
+  <form th:action="@{updateProduit}" method="post">
+    <div class="form-group">
+      <label class="font-weight-bold" hidden for="idProduit">Product ID:</label>
+      <input hidden type="text" id="idProduit" name="id" th:value="${produitsJsp.id}" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="font-weight-bold" for="nomProduit">Product Name:</label>
+      <input type="text" id="nomProduit" name="nom" th:value="${produitsJsp.nom}" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="font-weight-bold" for="prixProduit">Product Price:</label>
+      <input type="text" id="prixProduit" name="prix" th:value="${produitsJsp.prix}" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="font-weight-bold" for="quantiteProduit">Product Quantity:</label>
+      <input type="number" id="quantiteProduit" name="quantite" th:value="${produitsJsp.quantite}" class="form-control" min="0">
+    </div>
+
+    <div class="form-group text-center">
+      <input type="submit" value="Update" class="btn btn-primary">
+    </div>
+  </form>
+</main>
+
+<footer class="bg-dark text-white py-3">
+  <div class="container text-center">
+    <a href="listProduits" class="text-white">Liste des produits</a>
+  </div>
+</footer>
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
